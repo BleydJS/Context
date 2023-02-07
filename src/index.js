@@ -4,10 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { CounterContextProvider } from './context/CounterContext';
+import { TitleColorContextProvider } from './context/TitleColorContext';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+
   <React.StrictMode>
-    <App />
+    {/* CRIANDO PROVIDER...coloquei o <app> dentro de counter provider, pq ele tem o children logo o app todo vai ter acesso a ele */}
+    <CounterContextProvider>
+      <TitleColorContextProvider>
+       <App />
+      </TitleColorContextProvider>
+    </CounterContextProvider>
   </React.StrictMode>
 );
 
